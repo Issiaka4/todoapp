@@ -1,17 +1,29 @@
-# appli
+# 📝 Todo Simple - Architecture en 3 Couches
 
-A new Flutter project.
+Une application Flutter de gestion de tâches (Todo List) simple et robuste, intégrant **Firebase Authentication** et **Cloud Firestore**. Le projet est structuré selon une architecture en 3 couches (Présentation, Domaine, Données) pour garantir sa maintenabilité et son évolutivité.
 
-## Getting Started
+## 🚀 Fonctionnalités
+* 🔐 **Authentification** : Inscription et connexion par Email / Mot de passe via Firebase Auth.
+* 📋 **Gestion des tâches** : Ajout, modification du statut (complété/en cours) et suppression en temps réel avec Firestore.
+* 🛡️ **Sécurité** : Les tâches sont filtrées par utilisateur (`userId`) ; vous ne voyez que vos propres tâches.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 📂 Structure du Projet
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+Le code est découpé de la manière suivante dans le dossier `lib/` :
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```text
+lib/
+│
+├── data/                  # Couche Données (Services, API, Firebase)
+│   ├── auth_service.dart      -> Gestion de la connexion/inscription
+│   └── task_repository.dart   -> Requêtes CRUD Firestore
+│
+├── domain/                # Couche Domaine (Modèles et logique métier pure)
+│
+├── presentation/          # Couche Présentation (Interface utilisateur)
+│   ├── auth_page.dart         -> Écran de login / registre
+│   └── home_page.dart         -> Écran de la liste des tâches
+│
+└── main.dart              # Point d'entrée de l'application

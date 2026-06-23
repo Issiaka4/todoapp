@@ -7,6 +7,7 @@ class TaskRepository {
     return _firestore
         .collection('tasks')
         .where('userId', isEqualTo: userId)
+        .orderBy('createdAt', descending: true)
         .snapshots();
   }
 
@@ -15,6 +16,7 @@ class TaskRepository {
       'title': title,
       'isCompleted': false,
       'userId': userId,
+      'createdAt': FieldValue.serverTimestamp(),
     });
   }
 
@@ -29,5 +31,4 @@ class TaskRepository {
   }
 }
 
-// Instance globale pour simplifier l'accès
 final taskRepository = TaskRepository();

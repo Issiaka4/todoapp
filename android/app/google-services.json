@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "359718831332",
+    "project_id": "bd-gest",
+    "storage_bucket": "bd-gest.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:359718831332:android:9b2f2acff6c12a182bd8f1",
+        "android_client_info": {
+          "package_name": "com.issiaka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "359718831332-kp9lue741gbtlimeihk2jubhfukve4jh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKC6z5W8fKcWfa3m7En4U1J5dIvZBnP4M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "359718831332-kp9lue741gbtlimeihk2jubhfukve4jh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

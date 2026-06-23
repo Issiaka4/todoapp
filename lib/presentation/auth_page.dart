@@ -33,6 +33,15 @@ class _AuthPageState extends State<AuthPage> {
     }
   }
 
+  // 👇 LA FONCTION GOOGLE REPLACÉE PROPREMENT ICI
+  void _handleGoogleSignIn() async {
+    try {
+      await authService.signInWithGoogle();
+    } catch (e) {
+      _showSnackBar("Erreur Google : ${e.toString()}");
+    }
+  }
+
   @override
   void dispose() {
     _emailController.dispose();
@@ -58,7 +67,24 @@ class _AuthPageState extends State<AuthPage> {
                 ElevatedButton(onPressed: _handleSignIn, child: const Text('Se connecter')),
                 ElevatedButton(onPressed: _handleSignUp, child: const Text("S'inscrire")),
               ],
-            )
+            ),
+
+            // 👇 LE BOUTON GOOGLE AJOUTÉ ICI EN BAS DE LA COLONNE
+            const SizedBox(height: 30),
+            const Text("Ou", style: TextStyle(color: Colors.grey)),
+            const SizedBox(height: 15),
+
+            ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white,
+                foregroundColor: Colors.black,
+                minimumSize: const Size(double.infinity, 50), // Prend toute la largeur
+                side: const BorderSide(color: Colors.grey, width: 0.5), // Petite bordure grise
+              ),
+              icon: const Icon(Icons.g_mobiledata, size: 35, color: Colors.red), // Icône Google
+              label: const Text('Se connecter avec Google', style: TextStyle(fontSize: 16)),
+              onPressed: _handleGoogleSignIn, // Déclenche l'action
+            ),
           ],
         ),
       ),
